@@ -91,7 +91,19 @@ export default function AuthScreen() {
 
       <div className={styles.rightPane}>
         <h1 className='font-bold'>{isLogin ? "Sign In" : "Create an account"}</h1>
-        <p>{!isLogin ? 'Already have an account? ' : "Don't have an account? "}<a onClick={ () => setIsLogin(!isLogin) }className={styles.toggleLink}>{isLogin ? "Sign Up" : "Log In"}</a></p>
+
+      <div className="flex items-center gap-1 text-md">
+      <p>
+        {!isLogin ? 'Already have an account?' : "Don't have an account?"}
+      </p>
+      <a
+        onClick={() => setIsLogin(!isLogin)}
+        className="hover:!underline cursor-pointer font-medium !text-blue-800 transition-colors duration-200"
+      >
+        {isLogin ? 'Sign Up' : 'Log In'}
+      </a>
+    </div>
+
 
         <form className={styles.form} onSubmit={isLogin ? handleLogin : handleRegister}>
           {!isLogin && <div className={styles.inputGroup}>
