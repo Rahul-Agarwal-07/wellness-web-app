@@ -36,6 +36,8 @@ exports.signup = async (req, res) => {
 
 // Login controller
 exports.login = async (req, res) => {
+
+  console.log("Login Initiated");
   const { email, password } = req.body;
 
   try {

@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://wellness-web-app-kpmn.onrender.com/api';
 
 // Safe localStorage set
 const saveToken = (token) => {
