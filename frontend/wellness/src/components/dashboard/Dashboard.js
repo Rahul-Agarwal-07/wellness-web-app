@@ -159,7 +159,7 @@ export default function WellnessDashboard() {
 
       <div className={styles.sidebar}>
 
-        <div className={styles.logo}>WellNest</div>
+        <div onClick={() => router.replace('/')} className={styles.logo}>WellNest</div>
 
         <nav className={styles.navLinks}>
 
