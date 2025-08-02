@@ -32,12 +32,12 @@ cd wellness-web-app
 ### 2. Set Up the Backend
 
 Follow instructions in [`backend/README.md`](./backend/README.md)  
-➡️ [Go to Backend Setup](./backend/README.md)
+➡️ [Go to Backend Setup](./backend/)
 
 ### 3. Set Up the Frontend
 
-Follow instructions in [`frontend/README.md`](./frontend/README.md)  
-➡️ [Go to Frontend Setup](./frontend/README.md)
+Follow instructions in [`frontend/README.md`](./frontend/wellness/README.md)  
+➡️ [Go to Frontend Setup](./frontend/wellness)
 
 ---
 
