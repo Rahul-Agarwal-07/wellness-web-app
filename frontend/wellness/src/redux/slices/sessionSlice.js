@@ -64,10 +64,12 @@ export const getSessionById = createAsyncThunk(
         try
         {
             const token = getToken();
+            const delay = () => new Promise(res => setTimeout(res, 1000));
             const [res] = await Promise.all([
                 axios.get(`${API_URL}/my-sessions/${id}`, {
                     headers : { Authorization: `Bearer ${token}`}
                 }),
+                delay()
             ]);
 
             return res.data;

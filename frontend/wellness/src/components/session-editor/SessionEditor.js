@@ -27,7 +27,7 @@ export default function SessionEditor() {
   useEffect( async() => {
     if(id) 
     {
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        
         fetchSessionById()
     }
   },[id]);
