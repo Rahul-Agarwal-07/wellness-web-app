@@ -217,3 +217,76 @@
   text-align: center;
   font-weight: bold;
 }
+
+/* Your existing styles stay unchanged above this line */
+
+@media (max-width: 768px) {
+  .dashboardContainer {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+  }
+
+  .navLinks {
+    flex-direction: row;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+
+  
+
+  .mainContent {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+  }
+
+  .navLinks {
+    flex-direction: row;
+    justify-content: end;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .navLink{
+    font-size: 0.7rem;
+  }
+
+  .sessionCard {
+    padding: 1rem;
+  }
+
+  .dashboardTitle {
+    font-size: 1.3rem;
+  }
+
+  .sessionTitle {
+    font-size: 1rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+  }
+
+  .sessionLink {
+    font-size: 0.8rem;
+  }
+}
