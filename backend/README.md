@@ -8,10 +8,6 @@ This is the backend of the **Wellness Web App**, built with **Node.js**, **Expre
 
 http://localhost:5000/api
 
-yaml
-Copy
-Edit
-
 ---
 
 ## 📁 Project Structure
@@ -25,10 +21,6 @@ backend/
 ├── .env # Environment config
 ├── server.js # Entry point
 └── package.json
-
-yaml
-Copy
-Edit
 
 ---
 
