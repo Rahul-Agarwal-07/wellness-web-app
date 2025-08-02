@@ -24,8 +24,12 @@ export default function SessionEditor() {
 
   const { loading } = useSelector((state) => state.session);
 
-  useEffect(() => {
-    if(id) fetchSessionById()
+  useEffect( async() => {
+    if(id) 
+    {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        fetchSessionById()
+    }
   },[id]);
 
  useEffect(() => {
