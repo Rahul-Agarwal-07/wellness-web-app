@@ -12,8 +12,8 @@ http://localhost:5000/api
 
 ## 📁 Project Structure
 
-backend/
-├── controllers/ # Handles business logic
+backend/\n
+├── controllers/ # Handles business logic\n
 ├── middleware/ # Auth and error handling
 ├── models/ # Mongoose schemas
 ├── routes/ # API route definitions
