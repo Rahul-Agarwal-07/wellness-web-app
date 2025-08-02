@@ -17,12 +17,6 @@ export default function WellnessDashboard() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  useEffect(() => {
-  const urlView = searchParams.get('view') || 'dashboard';
-  setActiveSession(urlView);
-}, [searchParams]);
-
-
   // Get loading & error state from Redux
   const { loading, error } = useSelector((state) => state.session);
 
@@ -123,7 +117,6 @@ export default function WellnessDashboard() {
   }
 
   const handleNavClick = (viewName) => {
-    setActiveSession(viewName);
     router.replace(`?view=${viewName}`, { scroll: false });
   };
 
@@ -134,9 +127,17 @@ export default function WellnessDashboard() {
   }
 
   useEffect(() => {
-    setActiveSession(activeSession);
     getUserProfile();
-  }, [activeSession]);
+  }, []);
+
+  
+  useEffect(() => {
+    const urlView = searchParams.get('view') || 'dashboard';
+    if (urlView !== activeSession) {
+        setActiveSession(urlView);
+    }
+  }, [searchParams, activeSession]);
+
 
   useEffect(() => {
     if (activeSession === 'dashboard') {
