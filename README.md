@@ -2,7 +2,7 @@
 
 This is a full-stack wellness web application aimed at helping users manage their mental well-being through session tracking, journaling, and notes. The project is split into two main parts:
 
-- 🌐 [Frontend](./frontend/) — built with **Next.js**, **Tailwind CSS**, and **Redux**
+- 🌐 [Frontend](./frontend/wellness) — built with **Next.js**, **Tailwind CSS**, and **Redux**
 - 🔧 [Backend](./backend/) — built with **Node.js**, **Express**, and **MongoDB**
 
 ---
@@ -45,7 +45,6 @@ Follow instructions in [`frontend/README.md`](./frontend/README.md)
 
 - ✅ User authentication (JWT)
 - 📆 Session tracking and journaling
-- 📝 Notes for sessions
 - 🌙 Clean and calming UI (frontend)
 - 🔐 Protected API routes
 
