@@ -182,7 +182,8 @@ curl -X GET http://localhost:5000/api/sessions   -H "Authorization: Bearer <your
 
 ## 📌 Future Improvements
 
-- Add Swagger API documentation
+- JSON Parser to view session details in app
+- Enhancing User Experience
 - Rate limiting and logging middleware
 - Validation using Joi or express-validator
 - Unit tests with Jest
