@@ -17,7 +17,6 @@ backend
 ├── middleware/ # Auth and error handling  
 ├── models/ # Mongoose schemas  
 ├── routes/ # API route definitions  
-├── utils/ # Helper functions  
 ├── .env # Environment config  
 ├── server.js # Entry point  
 └── package.json  
@@ -25,108 +24,89 @@ backend
 ---
 
 ## ⚙️ Setup & Installation
-
-### 1. Clone the Repository
-
 ```bash
-git clone https://github.com/Rahul-Agarwal-07/wellness-web-app.git
-cd wellness-web-app/backend
-2. Install Dependencies
+1. Clone the Repository
+
+git clone https://github.com/Rahul-Agarwal-07/wellness-web-app.git  
+cd wellness-web-app/backend  
+
+2. Install Dependencies    
+npm install  
+
+3. Create .env File    
+touch .env  
+
+Fill it with the following:    
+PORT=5000  
+MONGO_URI=your_mongodb_connection_string  
+JWT_SECRET=your_jwt_secret  
+
+4. Run the Server  
+npm run dev    
+Server runs on: http://localhost:5000  
+
 bash
-Copy
-Edit
-npm install
-3. Create .env File
-bash
-Copy
-Edit
-touch .env
-Fill it with the following:
 
-env
-Copy
-Edit
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-4. Run the Server
-bash
-Copy
-Edit
-npm run dev
-Server runs on: http://localhost:5000
+## API Endpoints
+📦 API Endpoints  
+🔐 Auth Routes  
 
-📦 API Endpoints
-🔐 Auth Routes
-POST /api/auth/register
-Register a new user
+POST /api/auth/register  
+Register a new user  
 
-Request Body:
+Request Body:  
+{  
+  "firstName" : "John"  
+  "lastName": "Doe",  
+  "email": "john@example.com",  
+  "password": "yourpassword"  
+}  
 
-json
-Copy
-Edit
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "yourpassword"
-}
-POST /api/auth/login
-Login a user and return JWT
+POST /api/auth/login  
+Login a user and return JWT  
 
-Request Body:
+Request Body:  
+{  
+  "email": "john@example.com",  
+  "password": "yourpassword"  
+}  
 
-json
-Copy
-Edit
-{
-  "email": "john@example.com",
-  "password": "yourpassword"
-}
-👤 User Routes
-GET /api/users/:id
-Get user by ID
+👤 User Routes  
+GET /api/users/:id  
+Get user by ID  
 
-PUT /api/users/:id
-Update user details
+PUT /api/users/:id  
+Update user details  
 
-📘 Session Routes
-GET /api/sessions
-Get all sessions (public or user-specific)
+📘 Session Routes  
+GET /api/sessions  
+Get all sessions (public or user-specific)  
 
-GET /api/sessions/:id
-Get a session by ID
+GET /api/sessions/:id  
+Get a session by ID  
 
-POST /api/sessions
-Create a new session
+POST /api/sessions  
+Create a new session  
 
-Requires Authorization Header
+Requires Authorization Header  
 
-Request Body:
+Request Body:  
+{  
+  "title": "Therapy Session",  
+  "description": "Talked about anxiety.",  
+  "isPublic": false  
+}  
+PUT /api/sessions/:id    
+Update a session  
 
-json
-Copy
-Edit
-{
-  "title": "Therapy Session",
-  "description": "Talked about anxiety.",
-  "isPublic": false
-}
-PUT /api/sessions/:id
-Update a session
+DELETE /api/sessions/:id  
+Delete a session  
 
-DELETE /api/sessions/:id
-Delete a session
+📝 Note Routes  
+POST /api/notes  
+Create a new note for a session  
 
-📝 Note Routes
-POST /api/notes
-Create a new note for a session
-
-Request Body:
-
-json
-Copy
-Edit
+Request Body:  
 {
   "sessionId": "SESSION_ID_HERE",
   "text": "This was an important note."
