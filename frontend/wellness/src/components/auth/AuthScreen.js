@@ -5,7 +5,7 @@ import styles from './page.module.css'
 import Image from 'next/image'
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux'
-import { loadTokenFromStorage, loginUser, registerUser } from '../redux/slices/authSlice'
+import { loadTokenFromStorage, loginUser, registerUser } from '../../redux/slices/authSlice'
 import { useRouter, useSearchParams } from 'next/navigation';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
