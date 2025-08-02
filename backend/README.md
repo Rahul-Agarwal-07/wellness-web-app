@@ -109,7 +109,7 @@ Get a session by ID
 #### `GET /api/my-sessions`
 Get User's (Draft + Published) sessions
 
-#### `POST /api/my-sessions/save-draft
+#### `POST /api/my-sessions/save-draft`
 saves a draft session
 
 **Requires Authorization Header**
