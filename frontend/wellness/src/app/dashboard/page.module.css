@@ -1,0 +1,219 @@
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f9fafb;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(135deg, #a8ff78 0%, #78ffd6 100%);
+  color: green;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.navLink
+{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: green;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: rgb(8, 64, 8);
+}
+
+.navIcon {
+  font-size: 1.25rem;
+}
+
+/* Main Content */
+.mainContent {
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboardHeader
+{
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.dashboardTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #065f46;
+}
+
+.sunIcon {
+  font-size: 1.5rem;
+  color: #065f46;
+}
+
+/* Add Session Button */
+.sessionButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sessionButton:hover {
+  background-color: #059669;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+/* Sessions Grid */
+.sessionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Session Card */
+.sessionCard {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.5s;
+}
+
+.sessionCardContainer
+{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sessionHeader
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.deleteIcon:hover
+{
+  color: red;
+}
+
+.sessionCard:hover
+{
+    border: 2px dashed green;
+    transform: scale(1.05);
+}
+
+.sessionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #065f46;
+  margin-bottom: 0.5rem;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: 9999px; /* fully rounded */
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+}
+
+.tag:hover
+{
+    background-color: #065f46;
+    color: white;
+}
+
+.sessionTags {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.sessionLink {
+  font-size: 0.9rem;
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sessionLink:hover {
+  text-decoration: underline;
+  color: #065f46;;
+}
+
+.loaderOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(25, 15, 15, 0.4); /* slight fade */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+
+.error {
+  color: red;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+}

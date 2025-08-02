@@ -1,0 +1,109 @@
+/* page.module.css */
+
+.wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a8ff78 0%, #78ffd6 100%);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2e7d32;
+  font-family: 'Poppins', sans-serif;
+}
+
+.authButtons {
+  display: flex;
+  gap: 15px;
+}
+
+.button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.button:hover {
+  background-color: #27642a;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.buttonOutline {
+  background-color: transparent;
+  border: 2px solid #2e7d32;
+  color: #2e7d32;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.buttonOutline:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: url('/images/wellness-bg.png') no-repeat center center;
+  background-size: cover;
+}
+
+.heroContent {
+  max-width: 700px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 2.8rem;
+  color: #1b5e20;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #4e944f;
+  margin-bottom: 40px;
+}
+
+.ctaButton {
+  background-color: #2e7d32;
+  color: white;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #27642a;
+}

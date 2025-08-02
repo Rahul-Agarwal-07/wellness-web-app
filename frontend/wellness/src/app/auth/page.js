@@ -6,13 +6,15 @@ import Image from 'next/image'
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux'
 import { loadTokenFromStorage, loginUser, registerUser } from '../../redux/slices/authSlice'
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function AuthScreen() {
   const dispatch = useDispatch()
   const router = useRouter()
+  const searchParams = useSearchParams()
+
   const { loading, error, user } = useSelector((state) => state.auth)
 
   const [firstName, setFirstName] = useState("")
@@ -23,6 +25,11 @@ export default function AuthScreen() {
   const [isLogin, setIsLogin] = useState(true)
   const [showPassword, setShowPassword] = useState(false)
 
+  useEffect(() => {
+  const loginFlag = searchParams.get('flag');
+  if (loginFlag === 'true') setIsLogin(true);
+  else if (loginFlag === 'false') setIsLogin(false);
+}, [searchParams]);
 
   useEffect(() =>
   {
@@ -52,12 +59,6 @@ export default function AuthScreen() {
   {
     e.preventDefault();
 
-    if(!agreed)
-    {
-      toast.warn("You must agree to the Terms & Conditions");
-      return
-    }
-
     const resultAction = await dispatch(loginUser({email : email, password : password}));
     
     if (loginUser.fulfilled.match(resultAction)) {
@@ -73,8 +74,8 @@ export default function AuthScreen() {
     <div className={styles.container}>
       <div className={styles.leftPane}>
         <div className={styles.leftPaneTop}>
-          <div className={styles.logo}>App Name</div>
-          <button className={styles.backBtn}>Back to website →</button>
+          <div className={styles.logo}>WellNest</div>
+          <button onClick = { () => router.push('/') } className={styles.backBtn}>Back to website →</button>
         </div>
         
        <div className={styles.leftPaneImg}>
@@ -90,7 +91,7 @@ export default function AuthScreen() {
 
       <div className={styles.rightPane}>
         <h1 className='font-bold'>{isLogin ? "Sign In" : "Create an account"}</h1>
-        <p>{!isLogin ? 'Already have an account? ' : "Don't have an account? "}<a onClick={ () => setIsLogin(!isLogin)} >{isLogin ? "Sign Up" : "Log In"}</a></p>
+        <p>{!isLogin ? 'Already have an account? ' : "Don't have an account? "}<a onClick={ () => setIsLogin(!isLogin) }className={styles.toggleLink}>{isLogin ? "Sign Up" : "Log In"}</a></p>
 
         <form className={styles.form} onSubmit={isLogin ? handleLogin : handleRegister}>
           {!isLogin && <div className={styles.inputGroup}>
@@ -139,7 +140,7 @@ export default function AuthScreen() {
 
           </div>
 
-          <label className={styles.checkboxLabel}>
+          {!isLogin && <label className={styles.checkboxLabel}>
             <input
             color='lightgreen'
               type="checkbox"
@@ -150,7 +151,7 @@ export default function AuthScreen() {
               <span>I agree to the </span>
               <a href="#">Terms & Conditions</a>
             </div>
-          </label>
+          </label>}
 
           <button className={styles.submitBtn} type="submit" disabled={loading}>
             {isLogin ? (loading ? "Signing You in..." : "Sign In") : (loading ? "Creating account..." : "Create account")}

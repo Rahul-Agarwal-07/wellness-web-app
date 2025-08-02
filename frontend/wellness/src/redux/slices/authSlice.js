@@ -84,8 +84,11 @@ export const loadUser = createAsyncThunk(
         headers: { Authorization: `Bearer ${token}` },
       });
       return res.data;
-    } catch (err) {
-      return rejectWithValue('Failed to fetch user profile');
+    } catch (e) {
+
+      if(e.response?.status === 401) return rejectWithValue("Token Expired");
+      return rejectWithValue('Failed to fetch user profile',e.message);
+
     }
   }
 );

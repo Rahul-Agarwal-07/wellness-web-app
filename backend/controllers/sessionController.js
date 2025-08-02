@@ -1,5 +1,5 @@
 const Session = require("../models/Session");
-
+const mongoose = require('mongoose')
 // GET /api/sessions
 exports.getPublicSessions = async (req, res) => {
   try {
@@ -86,6 +86,7 @@ exports.saveOrUpdateDraft = async (req, res) => {
   try {
     const userEmail = req.user.email;
     const { _id, title, tags, jsonFileUrl } = req.body;
+    const tagsArray = tags.split(",");
 
     let session;
 
@@ -93,7 +94,7 @@ exports.saveOrUpdateDraft = async (req, res) => {
       // Update existing draft
       session = await Session.findOneAndUpdate(
         { _id, email: userEmail },
-        { title, tags, jsonFileUrl, isPublic: false },
+        { title, tags : tagsArray, jsonFileUrl, isPublic: false },
         { new: true }
       );
 
@@ -104,7 +105,7 @@ exports.saveOrUpdateDraft = async (req, res) => {
       // Create new draft
       session = new Session({
         title,
-        tags,
+        tags : tagsArray,
         jsonFileUrl,
         email: userEmail,
         isPublic: false
@@ -119,5 +120,30 @@ exports.saveOrUpdateDraft = async (req, res) => {
   } catch (e) {
     console.error("Error saving/updating draft:", e.message);
     return res.status(500).json({ message: e.message });
+  }
+};
+
+//DELETE /api/my-session/:id
+exports.deleteSession = async (req, res) => {
+  try {
+    const userEmail = req.user.email; // from JWT
+    const { id } = req.params;        // session ID from URL
+
+    // Check if ID is valid Mongo ObjectId
+    if (!id || !mongoose.isValidObjectId(id)) {
+      return res.status(400).json({ message: "Invalid session ID" });
+    }
+
+    // Delete session only if it belongs to the current user
+    const result = await Session.deleteOne({ _id: id, email: userEmail });
+
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ message: "Session not found or not owned by you" });
+    }
+
+    return res.status(200).json({ message: "Session deleted successfully!" });
+  } catch (e) {
+    console.error("Error deleting session:", e.message);
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
