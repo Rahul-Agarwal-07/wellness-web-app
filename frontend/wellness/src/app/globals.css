@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #054a29;
+}
+
+p,a {
+  color: #058b42;
+  text-decoration: none;
+  font-weight: 500;
+}
