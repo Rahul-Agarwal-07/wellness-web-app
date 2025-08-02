@@ -98,16 +98,6 @@ Login a user and return JWT
 
 ---
 
-### 👤 User Routes
-
-#### `GET /api/users/:id`
-Get user by ID
-
-#### `PUT /api/users/:id`
-Update user details
-
----
-
 ### 📘 Session Routes
 
 #### `GET /api/sessions`
@@ -116,8 +106,11 @@ Get all sessions (public or user-specific)
 #### `GET /api/sessions/:id`
 Get a session by ID
 
-#### `POST /api/sessions`
-Create a new session
+#### `GET /api/my-sessions`
+Get User's (Draft + Published) sessions
+
+#### `POST /api/my-sessions/save-draft
+saves a draft session
 
 **Requires Authorization Header**
 
@@ -125,37 +118,26 @@ Create a new session
 ```json
 {
   "title": "Therapy Session",
-  "description": "Talked about anxiety.",
+  "jsonFileUrl": "Talked about anxiety.",
+  "tags" : ["yoga", "meditation"],
   "isPublic": false
 }
 ```
 
-#### `PUT /api/sessions/:id`
-Update a session
+#### `POST /api/my-sessions/publish`
+publishes a draft session
 
-#### `DELETE /api/sessions/:id`
-Delete a session
-
----
-
-### 📝 Note Routes
-
-#### `POST /api/notes`
-Create a new note for a session
+**Requires Authorization Header**
 
 **Request Body:**
 ```json
 {
-  "sessionId": "SESSION_ID_HERE",
-  "text": "This was an important note."
+  "id" : "sdjklasdwdsfwwf",
 }
 ```
 
-#### `GET /api/notes/session/:sessionId`
-Get all notes for a session
-
-#### `DELETE /api/notes/:id`
-Delete a note
+#### `DELETE /api/sessions/:id`
+Delete a session
 
 ---
 
