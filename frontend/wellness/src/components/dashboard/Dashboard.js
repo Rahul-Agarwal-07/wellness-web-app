@@ -17,8 +17,11 @@ export default function WellnessDashboard() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  // Read the 'view' query param from URL, default to 'dashboard'
-  const view = searchParams.get('view') || 'dashboard';
+  useEffect(() => {
+  const urlView = searchParams.get('view') || 'dashboard';
+  setActiveSession(urlView);
+}, [searchParams]);
+
 
   // Get loading & error state from Redux
   const { loading, error } = useSelector((state) => state.session);
@@ -131,9 +134,9 @@ export default function WellnessDashboard() {
   }
 
   useEffect(() => {
-    setActiveSession(view);
+    setActiveSession(activeSession);
     getUserProfile();
-  }, [view]);
+  }, [activeSession]);
 
   useEffect(() => {
     if (activeSession === 'dashboard') {
@@ -195,7 +198,7 @@ export default function WellnessDashboard() {
               <div className={styles.sessionCardContainer}>
                 <div className={styles.sessionHeader}>
                 <h3 className={styles.sessionTitle}>{session.title}</h3>
-                {view !== 'dashboard' && <FiTrash onClick= {(e) => handleDelete(e,session._id) } className={`${styles.icon} ${styles.deleteIcon}`}/>}
+                {activeSession !== 'dashboard' && <FiTrash onClick= {(e) => handleDelete(e,session._id) } className={`${styles.icon} ${styles.deleteIcon}`}/>}
               </div>
 
               <div className={styles.sessionBody}>
