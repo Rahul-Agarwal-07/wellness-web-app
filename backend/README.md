@@ -14,13 +14,13 @@ http://localhost:5000/api
 
 backend  
 ├── controllers/ # Handles business logic  
-├── middleware/ # Auth and error handling
-├── models/ # Mongoose schemas
-├── routes/ # API route definitions
-├── utils/ # Helper functions
-├── .env # Environment config
-├── server.js # Entry point
-└── package.json
+├── middleware/ # Auth and error handling  
+├── models/ # Mongoose schemas  
+├── routes/ # API route definitions  
+├── utils/ # Helper functions  
+├── .env # Environment config  
+├── server.js # Entry point  
+└── package.json  
 
 ---
 
