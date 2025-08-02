@@ -4,7 +4,7 @@ import AuthScreen from '../../components/auth/AuthScreen'; // Move it here
 
 export default function Page() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense>
       <AuthScreen />
     </Suspense>
   );
