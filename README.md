@@ -26,7 +26,6 @@ To run the full project locally:
 
 ```bash
 git clone https://github.com/Rahul-Agarwal-07/wellness-web-app.git
-cd wellness-web-app
 ```
 
 ### 2. Set Up the Backend
