@@ -14,8 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Wellness App",
+  title: "WellNest",
   description: "Your Health is Your Wealth",
+  icons : {
+    icon : '/favicon.ico'
+  }
 };
 
 export default function RootLayout({ children }) {
