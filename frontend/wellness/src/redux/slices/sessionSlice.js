@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = 'https://wellness-web-app-kpmn.onrender.com/api'
+const API_URL = 'https://wellness-web-app-stwy.onrender.com/api'
 
 const getToken = () => {
   if (typeof window !== 'undefined') {
